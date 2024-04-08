@@ -8,9 +8,23 @@ public class EnumDemo {
         else
             System.out.println(Gender.FEMALE + "은 병역 의무가 없다.");
 
+        for(Gender g : Gender.values())
+            System.out.println(g.name());
+
+        System.out.println(Gender.valueOf("MALE"));
     }
 }
 
-enum Gender { MALE, FEMALE }
+enum Gender {
+    MALE("남성"), FEMALE("여성");
 
-enum Direction { EAST, WEST, SOUTH, NORTH }
+    private String s;
+
+    Gender(String s) {
+        this.s = s;
+    }
+
+    public String toString() {
+        return s;
+    }
+}
